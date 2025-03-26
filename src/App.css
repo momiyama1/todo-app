@@ -1,42 +1,122 @@
+/* アプリ全体のスタイル */
 .App {
-  text-align: center;
   font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: 0 auto;
+  background-color: #f9f9f9;
+  color: #333;
   padding: 20px;
+  max-width: 600px;
+  margin: 0 auto; /* 横方向中央揃え */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を縦方向中央揃え */
 }
 
+/* ヘッダー（タイトル）のスタイル */
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px; /* タイトルと入力フォームの間にスペース */
+  font-size: 28px; /* タイトルのフォントサイズを調整 */
+}
+
+/* 入力フォームを横並びにするためのスタイル */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 要素間の間隔を広げる */
+  margin-bottom: 20px; /* 入力フォームとToDoリストの間にスペース */
+}
+
+/* ToDo名入力ボックス */
 input[type="text"] {
   padding: 10px;
-  width: 300px;
-  font-size: 16px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 230px; /* 幅を少し広げる */
+  box-sizing: border-box;
+  font-size: 16px; /* フォントサイズを調整 */
 }
 
-button {
+/* 期限入力ボックス */
+input[type="date"] {
   padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 170px; /* 幅を少し広げる */
+  box-sizing: border-box;
+  font-size: 16px; /* フォントサイズを調整 */
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin: 10px 0;
-  font-size: 18px;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
-}
-
+/* 追加ボタンのスタイル */
 button {
-  background-color: red;
+  background-color: #3498db;
   color: white;
+  padding: 8px 16px; /* パディングを少し小さめに調整 */
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  padding: 5px 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* ボタンにホバー時の色変更 */
+button:hover {
+  background-color: #2980b9;
+}
+
+/* ToDoリストとそのアイテムのスタイル */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  margin: 8px 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* 完了したToDoのスタイル */
+.todo-item.completed {
+  text-decoration: line-through;
+  color: #7f8c8d;
+}
+
+/* 削除ボタンのスタイル */
+button.delete {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 4px;
+  padding: 5px 12px;
+  margin-left: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.delete:hover {
+  background-color: #a53a2e;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="text"], input[type="date"], button {
+    width: 100%;
+  }
 }
